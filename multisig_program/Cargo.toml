@@ -1,0 +1,14 @@
+[package]
+name = "multisig_program"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+multisig_core = { path = "../multisig_core" }
+membership_circuit = { path = "../membership_circuit", default-features = false }
+zk_common = { path = "../zk_common", default-features = false }
+nssa_core.workspace = true
+spel-framework.workspace = true
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+borsh.workspace = true
+risc0-zkvm.workspace = true

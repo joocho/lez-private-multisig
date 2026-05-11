@@ -1,0 +1,24 @@
+[package]
+name = "membership_circuit"
+version = "0.1.0"
+edition = "2024"
+
+[build-dependencies]
+risc0-build.workspace = true
+
+[package.metadata.risc0]
+methods = ["guest"]
+
+[features]
+default = ["std"]
+std = ["dep:risc0-zkvm", "dep:anyhow", "zk_common/std"]
+
+[dependencies]
+zk_common = { path = "../zk_common", default-features = false }
+# Only pulled in when `std` is on — the generated methods.rs doesn't
+# need anything from risc0-zkvm, it's just `&[u8]` + `[u32; 8]` consts.
+risc0-zkvm = { workspace = true, optional = true }
+borsh.workspace = true
+sha2.workspace = true
+hex.workspace = true
+anyhow = { version = "1", optional = true }

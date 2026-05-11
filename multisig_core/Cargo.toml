@@ -1,0 +1,10 @@
+[package]
+name = "multisig_core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+zk_common = { path = "../zk_common", default-features = false }
+nssa_core.workspace = true
+serde.workspace = true
+borsh.workspace = true
